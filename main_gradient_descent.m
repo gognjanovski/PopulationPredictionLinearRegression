@@ -46,7 +46,7 @@ pred_year_norm = [1 pred_year_val];
 % Calculate predicted value
 pred_value = pred_year_norm * theta;
 
-% Add predicted year to matrix so it will be ploted
+% Add predicted year to matrix so it will be ploted on the graph
 X_norm = vertcat(X_norm, [1 pred_year_val]);
 X = vertcat(X, [pred_year]);
 
