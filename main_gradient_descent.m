@@ -53,14 +53,16 @@ pred_value = pred_year_norm * theta;
 X_norm = vertcat(X_norm, [1 pred_year_val]);
 X = vertcat(X, [pred_year]);
 
+pause;
 % Plot linear regression line
 plot(X, X_norm*theta, '-')
 
-% Plot predicted value with blue cross
-plot(pred_year, pred_value, 'bx', 'MarkerSize', 10);
-
 % Add legend
 legend('Population', 'Linear Regression', 'Predicted Population', "location", "north");
+
+pause;
+% Plot predicted value with blue cross
+plot(pred_year, pred_value, 'bx', 'MarkerSize', 10);
 
 hold off;
 

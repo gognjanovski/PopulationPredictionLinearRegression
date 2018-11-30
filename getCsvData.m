@@ -1,7 +1,5 @@
 function data_reshape = getCsvData(filename)
 %GETCSVDATA load the csv data into cell array
-%   
-%
 
     fileID = fopen(filename,'r');
     % Start row is 1 since the first line is the heading (name of the columns)
@@ -17,7 +15,4 @@ function data_reshape = getCsvData(filename)
         data_reshape{i, 1} = data{1,1}(i);
         data_reshape{i, 2} = data{1,2}(i);
     end
-
-
-
 end
