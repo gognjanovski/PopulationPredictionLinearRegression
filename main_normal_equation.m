@@ -18,37 +18,27 @@ ylabel('Population');
 % Plot population data
 plot(X, y, 'rx', 'MarkerSize', 10);
 
-% Normalize features
-[X_norm mu sigma] = featureNormalize(X);
-
 m = length(y);
 % Add ones column
-X_norm = [ones(m, 1) X_norm];
+X = [ones(m, 1) X];
 
 % Gradient Descent with Normal Equation
-theta = (pinv(X_norm'*X_norm))*X_norm'*y
+theta = (pinv(X'*X))*X'*y
 
 % Predict population for 2020
 pred_year = 2020;
-
-% Dont forget to normalize the feature before prediction
-pred_year_val = (pred_year .- mu)./sigma;
-
-% Add first column
-pred_year_norm = [1 pred_year_val];
+pred_year_val = [1 2020];
 
 % Calculate predicted value
-pred_value = pred_year_norm * theta;
+pred_value = pred_year_val * theta;
 
 % Add predicted year to matrix so it will be ploted on the graph
-X_norm = vertcat(X_norm, [1 pred_year_val]);
-X = vertcat(X, [pred_year]);
+X = vertcat(X, pred_year_val);
 
 fprintf('Press any key to continue\n');
 pause;
 % Plot linear regression line
-plot(X, X_norm*theta, '-')
-
+plot(X(:,2), X*theta, '-')
 
 fprintf('Press any key to continue\n');
 pause;
