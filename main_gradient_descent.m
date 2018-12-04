@@ -27,11 +27,14 @@ X_norm = [ones(m, 1) X_norm];
 
 % Choose some alpha value
 alpha = 0.1;
+% Set number of iterations
 num_iters = 400;
+% Initialize theta
+theta = zeros(2, 1);
+
+[M N] = size(X_norm);
 
 % Init Theta and Run Gradient Descent 
-[M N] = size(X_norm);
-theta = zeros(2, 1);
 theta = gradientDescent(X_norm, y, theta, alpha, num_iters)
 
 % Predict population for 2020
